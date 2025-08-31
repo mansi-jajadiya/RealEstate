@@ -1,0 +1,11 @@
+.add-agent-path{
+    background-color: white;
+  padding: 15px 20px;
+  border-radius: 15px;
+  font-family: "playfair display", serif;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
+}
+.add-span{
+    color: #77c720;
+    font-weight: bold;
+}
