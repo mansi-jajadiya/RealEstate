@@ -108,3 +108,81 @@
   background-color: #dc3545;
   color: #fff;
 }
+/* ===== Responsive Styles ===== */
+
+/* Medium devices (≤992px) */
+@media (max-width: 992px) {
+  .admin-agent-name {
+    font-size: 16px;
+  }
+  .admin-agent-company,
+  .admin-agent-desc,
+  .admin-li {
+    font-size: 13px;
+  }
+  .btn-edit,
+  .btn-delete {
+    font-size: 13px;
+    padding: 5px 12px;
+  }
+  .admin-agent-img {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+/* Small devices (≤768px) */
+@media (max-width: 768px) {
+  .admin-agents-title {
+    font-size: 22px;
+  }
+  .btn-add-agent {
+    font-size: 16px;
+    padding: 6px 14px;
+  }
+  .admin-agent-name {
+    font-size: 18px;
+  }
+  .admin-agent-company,
+  .admin-agent-desc,
+  .admin-li {
+    font-size: 15px;
+  }
+  .admin-agent-img {
+    width: 65px;
+    height: 65px;
+  }
+  .btn-edit,
+  .btn-delete {
+    font-size: 14px;
+    padding: 4px 10px;
+  }
+}
+
+/* Extra small devices (≤576px) */
+@media (max-width: 576px) {
+  .admin-agents-title {
+    font-size: 18px;
+  }
+  .btn-add-agent {
+    font-size: 15px;
+    padding: 5px 12px;
+  }
+  .admin-agent-name {
+    font-size: 16px;
+  }
+  .admin-agent-company,
+  .admin-agent-desc,
+  .admin-li {
+    font-size: 13px;
+  }
+  .admin-agent-img {
+    width: 55px;
+    height: 55px;
+  }
+  .btn-edit,
+  .btn-delete {
+    font-size: 14px;
+    padding: 3px 8px;
+  }
+}

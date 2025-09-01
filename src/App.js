@@ -21,6 +21,8 @@ import SignupPage from "../src/components/login_and_signup/SignupPage";
 import AdminLayout from "./components/adminpanel/AdminLayout";
 import Allagentpage from "./components/adminpanel/agents/Allagentpage";
 import Addagent from "./components/adminpanel/agents/Addagent";
+import Editagent from "./components/adminpanel/agents/Editagent";
+import Adminrent from "./components/adminpanel/for rent admin/Adminrent";
 
 export default function App() {
   return (
@@ -160,6 +162,8 @@ export default function App() {
      <Route path="/admin" element={   <EnhancedErrorBoundary name="Admin Page">     <AdminLayout />   </EnhancedErrorBoundary> }>
        <Route path="agent" element={   <EnhancedErrorBoundary name="All Agents Page">     <Allagentpage />   </EnhancedErrorBoundary> } />
        <Route path="addagent" element={   <EnhancedErrorBoundary name="All Agents Page">     <Addagent />   </EnhancedErrorBoundary> } />
+       <Route path="editagent/:id" element={   <EnhancedErrorBoundary name="All Agents Page">     <Editagent />   </EnhancedErrorBoundary> } />
+       <Route path="adminrent" element={   <EnhancedErrorBoundary name="All Agents Page">     <Adminrent />   </EnhancedErrorBoundary> } />
      </Route>
 
       </Routes>

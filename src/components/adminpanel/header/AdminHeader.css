@@ -12,14 +12,14 @@
 }
 
 .admin-logo-icon {
-  color: #4CAF50; /* green accent for logo */
+  color: #4CAF50; 
 }
 
 .admin-brand-name {
   font-weight: 600;
   color: #333;
 }
-/* Analytics button same style as search box */
+
 .admin-analytics-btn {
   flex: 1;
   display: flex;
@@ -27,22 +27,15 @@
 }
 
 .analytics-button {
-  background: #f5f5f5;
   border: none;
   padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: #77c720;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.analytics-button:hover {
-  background: #e0e0e0;
-}
-
-/* Profile Section */
 .admin-profile {
   display: flex;
   align-items: center;

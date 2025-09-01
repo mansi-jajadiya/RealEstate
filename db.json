@@ -732,8 +732,9 @@
       "email": "emma@houzez.com",
       "description": "Guide clients through buying and selling process Guide clients carefully",
       "location": "San Francisco, USA"
-    },{
-      "id": "6", 
+    },
+    {
+      "id": "6",
       "image": "/images/agent-6.jpg",
       "agentname": "Olivia Parker",
       "cname": "Top Property Advisor at Skyline Realty",

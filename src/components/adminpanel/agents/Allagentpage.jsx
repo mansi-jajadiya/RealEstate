@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Allagentpage.css";
 import { FiPlus } from "react-icons/fi";
 import { FiEdit2, FiTrash2 } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import "./Allagentpage.css";
 
 const Allagentpage = () => {
   const [agents, setAgents] = useState([]);
@@ -15,16 +15,14 @@ const Allagentpage = () => {
       .catch((err) => console.error("Error fetching agents:", err));
   }, []);
 
- const handleDelete = async (id) => {
-  try {
-    await axios.delete(`http://localhost:3001/ouragent/${id}`);
-    // remove from state (UI)
-    setAgents((prevAgents) => prevAgents.filter((a) => a.id !== id));
-  } catch (err) {
-    console.error("Error deleting agent:", err);
-  }
-};
-
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/ouragent/${id}`);
+      setAgents((prevAgents) => prevAgents.filter((a) => a.id !== id));
+    } catch (err) {
+      console.error("Error deleting agent:", err);
+    }
+  };
 
   return (
     <div className="admin-agents-page">
@@ -32,7 +30,10 @@ const Allagentpage = () => {
         <div className="age-card-view mt-5 mb-4">
           <div className="admin-agents-header d-flex justify-content-between align-items-center">
             <h4 className="admin-agents-title mb-0">Agent Card View</h4>
-            <button className="btn-add-agent d-flex align-items-center" onClick={() => navigate("/admin/addagent")}>
+            <button
+              className="btn-add-agent d-flex align-items-center"
+              onClick={() => navigate("/admin/addagent")}
+            >
               <FiPlus className="me-2" /> Add Agent
             </button>
           </div>
@@ -55,9 +56,7 @@ const Allagentpage = () => {
                       <p className="admin-agent-company mb-0">{agent.cname}</p>
                     </div>
                   </div>
-
                   <p className="admin-agent-desc">{agent.description}</p>
-
                   <ul className="list123-unstyled mb-3 ">
                     <li className="admin-li ">
                       <span className="text-muted me-1">Mobile :</span>{" "}
@@ -75,9 +74,11 @@ const Allagentpage = () => {
                     </li>
                     <div className="mb-2 mt-2 border-bottom"></div>
                   </ul>
-
                   <div className="d-flex justify-content-start mt-3 ">
-                    <button className="btn-edit me-2">
+                    <button
+                      className="btn-edit me-2"
+                      onClick={() => navigate(`/admin/editagent/${agent.id}`)}
+                    >
                       <FiEdit2 className="me-1" /> Edit
                     </button>
                     <button
@@ -93,7 +94,7 @@ const Allagentpage = () => {
           ))}
         </div>
       </div>
-    </div> 
+    </div>
   );
 };
 
