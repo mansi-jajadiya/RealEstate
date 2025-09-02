@@ -744,6 +744,18 @@
       "email": "olivia@skyline.com",
       "description": "Dedicated to helping clients buy and sell properties smoothly with expert advice and personalized support.",
       "location": "Los Angeles, USA"
+    },
+    {
+      "id": "7",
+      "image": "blob:http://localhost:3000/e2a9bfc2-10be-4e16-83b0-7f26733d136c",
+      "agentname": "mansi jajaidya ",
+      "cname": "student",
+      "office": "8160071671",
+      "mobile": "8160071671",
+      "fax": "8160071671",
+      "email": "masni@gmail.com",
+      "location": "new ",
+      "description": "gbhn"
     }
   ],
   "blogs": [

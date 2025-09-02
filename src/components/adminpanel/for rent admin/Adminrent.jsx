@@ -1,92 +1,119 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./Adminrent.css";
 
 const Adminrent = () => {
-  return (
-    <div className="container mt-5">
-      <div className="card shadow-sm border-0 w-100">
-        {/* Header */}
-        <div className="card-header bg-white border-0">
-          <h5 className="mb-0">Properties</h5>
-        </div>
+  const [properties, setProperties] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
 
-        {/* Table */}
-        <div className="card-body p-0">
-          <div className="table-responsive w-100">
-            <table className="table table-hover align-middle mb-0 w-100">
-              <thead className="table-light">
-                <tr>
-                  <th>#</th>
-                  <th>Property</th>
-                  <th>Type</th>
-                  <th>Price</th>
-                  <th>City</th>
-                  <th>Status</th>
-                  <th>Added On</th>
-                  <th className="text-center">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>101</td>
-                  <td>Ocean View Villa</td>
-                  <td>Villa</td>
-                  <td>₹4,20,000</td>
-                  <td>Mumbai</td>
-                  <td>
-                    <span className="badge bg-success">Active</span>
-                  </td>
-                  <td>12 Jul 2025</td>
-                  <td className="text-center">
-                    <button className="btn btn-sm btn-outline-primary me-2">
-                      Edit
-                    </button>
-                    <button className="btn btn-sm btn-outline-danger">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>102</td>
-                  <td>Downtown Loft</td>
-                  <td>Apartment</td>
-                  <td>₹2,10,000</td>
-                  <td>Delhi</td>
-                  <td>
-                    <span className="badge bg-warning text-dark">Pending</span>
-                  </td>
-                  <td>03 Jun 2025</td>
-                  <td className="text-center">
-                    <button className="btn btn-sm btn-outline-primary me-2">
-                      Edit
-                    </button>
-                    <button className="btn btn-sm btn-outline-danger">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>103</td>
-                  <td>Suburban Home</td>
-                  <td>House</td>
-                  <td>₹1,55,000</td>
-                  <td>Pune</td>
-                  <td>
-                    <span className="badge bg-secondary">Inactive</span>
-                  </td>
-                  <td>28 Mar 2025</td>
-                  <td className="text-center">
-                    <button className="btn btn-sm btn-outline-primary me-2">
-                      Edit
-                    </button>
-                    <button className="btn btn-sm btn-outline-danger">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/cards")
+      .then((res) => {
+        const limited = res.data.slice(0, 22); // total 22 items
+        setProperties(limited);
+      })
+      .catch((err) => console.error("Error fetching properties:", err));
+  }, []);
+
+  // Page logic
+  const totalItems = properties.length;
+  const totalPages = 2; // force only 2 pages
+  const propertiesPerPage = currentPage === 1 ? 10 : totalItems - 10;
+
+  const indexOfLast = currentPage === 1 ? 10 : totalItems;
+  const indexOfFirst = currentPage === 1 ? 0 : 10;
+
+  const currentProperties = properties.slice(indexOfFirst, indexOfLast);
+
+  return (
+    <div className="admin-properties-page">
+      <div className="container mt-3">
+        <div className="mb-4 prop-path d-flex align-items-center">
+          <span className="prop-span">Property Listing</span>
+        </div>
+        <div className="prop-card shadow-sm border-0">
+          <div className="prop-card-body p-0 overflow-hidden">
+            {/* <div className="table-wrapper">
+  <table className="prop-table">
+    <thead className="prop-head">
+      <tr>
+        <th>No.</th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Bedrooms</th>
+        <th>Bathrooms</th>
+        <th>Cars</th>
+        <th>Area</th>
+      </tr>
+    </thead>
+    <tbody>
+      {currentProperties.map((p, index) => (
+        <tr key={p.id}>
+          <td>{indexOfFirst + index + 1}</td>
+          <td>
+            <img
+              src={p.image1}
+              alt={p.title}
+              width="70"
+              height="50"
+              style={{ objectFit: "cover", borderRadius: "6px" }}
+            />
+          </td>
+          <td data-label="Title">{p.title}</td>
+          <td data-label="Category">{p.category}</td>
+          <td data-label="Price">${p.price}</td>
+          <td data-label="Bedrooms">{p.bedrooms}</td>
+          <td data-label="Bathrooms">{p.bathrooms}</td>
+          <td data-label="Cars">{p.cars}</td>
+          <td data-label="Area">{p.area}</td>
+        </tr>
+      ))}
+      {properties.length === 0 && (
+        <tr>
+          <td colSpan="9" className="no-data">
+            No properties found.
+          </td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+</div> */}
+
           </div>
         </div>
+        {/* Pagination Controls */}
+        {properties.length > 10 && (
+          <div className="d-flex justify-content-center my-3 custom-pagination">
+            <button
+              onClick={() => setCurrentPage(1)}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+
+            {[1, 2].map((page) => (
+              <button
+                key={page}
+                className={currentPage === page ? "active" : ""}
+                onClick={() => setCurrentPage(page)}
+              >
+                {page}
+              </button>
+            ))}
+
+            <button
+              onClick={() => setCurrentPage(2)}
+              disabled={currentPage === 2}
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

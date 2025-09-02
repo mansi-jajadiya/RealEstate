@@ -1,0 +1,190 @@
+.prop-card-body {
+  font-family: Dosis, sans-serif;
+  font-size: 18px;
+}
+
+.prop-path{
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.prop-span{
+  font-size: 20px;
+  color: #77c720;
+  font-family: Playfair Display, serif;
+}
+
+.custom-pagination button {
+  font-family: Dosis, sans-serif;
+  border: 1px solid #77c720;
+  background: transparent;
+  color: #77c720;
+  padding: 6px 14px;
+  margin: 0 4px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-pagination button.active {
+  background-color: #77c720;
+  color: #fff;
+}
+
+.custom-pagination button:hover:not(:disabled):not(.active) {
+  background-color: rgba(119, 199, 32, 0.1);
+}
+
+.custom-pagination button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: visible;
+}
+
+.prop-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Dosis, sans-serif;
+  font-size: 16px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.prop-table th, .prop-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.prop-table tr:hover {
+  background-color: rgba(119, 199, 32, 0.05);
+}
+
+.prop-head th {
+  background-color: #77c720;
+  color: #fff;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #777;
+}
+/* ================== Responsive Styles ================== */
+
+@media (max-width: 1200px) {
+  .table-wrapper {
+    width: 100%;                  /* take full width */
+    overflow-x: auto;              /* enable horizontal scroll */
+    -webkit-overflow-scrolling: touch; /* smooth on mobile */
+    display: block;                /* keep scroll working */
+  }
+
+  .table-wrapper table {
+    max-width: 1100px;             /* wider than small screens */
+    width: max-content;            /* prevents shrinking */
+    border-collapse: collapse;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .prop-path {
+    padding: 12px;
+    text-align: center;
+  }
+
+  .prop-span {
+    font-size: 18px;
+  }
+
+  .custom-pagination button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .prop-table thead {
+    display: none; /* hide table header */
+  }
+
+  .prop-table tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .prop-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .prop-table td:last-child {
+    border-bottom: none;
+  }
+
+  .prop-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #333;
+  }
+
+  .prop-table img {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .custom-pagination {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .prop-span {
+    font-size: 16px;
+  }
+
+  .prop-table tr {
+    padding: 8px;
+  }
+
+  .prop-table td {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 6px 8px;
+  }
+
+  .prop-table td::before {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  .custom-pagination button {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+}
+
+

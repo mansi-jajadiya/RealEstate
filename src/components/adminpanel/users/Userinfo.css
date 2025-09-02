@@ -1,0 +1,22 @@
+.user-card-body {
+  font-family: Dosis, sans-serif;
+  font-size: 18px;
+}
+
+.user-log-path{
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.user-span{
+  font-size: 20px;
+  color: #77c720;
+  font-family: Playfair Display, serif;
+}
+
+.user-head th {
+  background-color: #77c720;
+  color: white;
+}
+

@@ -23,6 +23,8 @@ import Allagentpage from "./components/adminpanel/agents/Allagentpage";
 import Addagent from "./components/adminpanel/agents/Addagent";
 import Editagent from "./components/adminpanel/agents/Editagent";
 import Adminrent from "./components/adminpanel/for rent admin/Adminrent";
+// import AdminDashboard from "./components/adminpanel/dashboard/AdminDashboard ";
+import Userinfo from "./components/adminpanel/users/Userinfo";
 
 export default function App() {
   return (
@@ -164,6 +166,8 @@ export default function App() {
        <Route path="addagent" element={   <EnhancedErrorBoundary name="All Agents Page">     <Addagent />   </EnhancedErrorBoundary> } />
        <Route path="editagent/:id" element={   <EnhancedErrorBoundary name="All Agents Page">     <Editagent />   </EnhancedErrorBoundary> } />
        <Route path="adminrent" element={   <EnhancedErrorBoundary name="All Agents Page">     <Adminrent />   </EnhancedErrorBoundary> } />
+        {/* <Route path="dashboard" element={   <EnhancedErrorBoundary name="Admin Dashboard Page">     <AdminDashboard />   </EnhancedErrorBoundary> } /> */}
+        <Route path="user" element={   <EnhancedErrorBoundary name="All Agents Page">     <Userinfo />   </EnhancedErrorBoundary> } />
      </Route>
 
       </Routes>
