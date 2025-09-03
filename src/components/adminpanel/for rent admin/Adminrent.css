@@ -1,190 +1,304 @@
-.prop-card-body {
-  font-family: Dosis, sans-serif;
-  font-size: 18px;
+/* 
+.adminrent-container {
+  padding: 24px;
+  min-height: 100vh;
+  font-family: 'Dosis', sans-serif;
 }
 
-.prop-path{
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
+.adminrent-header {
+  margin-bottom: 32px;
 }
 
-.prop-span{
-  font-size: 20px;
-  color: #77c720;
-  font-family: Playfair Display, serif;
+.adminrent-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #212529;
+  margin: 0 0 8px 0;
+  font-family: 'Dosis', sans-serif;
 }
 
-.custom-pagination button {
-  font-family: Dosis, sans-serif;
-  border: 1px solid #77c720;
-  background: transparent;
-  color: #77c720;
-  padding: 6px 14px;
-  margin: 0 4px;
-  border-radius: 6px;
+.adminrent-subtitle {
   font-size: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  color: #6c757d;
+  margin: 0;
+  font-family: 'Dosis', sans-serif;
 }
 
-.custom-pagination button.active {
-  background-color: #77c720;
-  color: #fff;
+.adminrent-table-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  overflow-x: auto;
 }
 
-.custom-pagination button:hover:not(:disabled):not(.active) {
-  background-color: rgba(119, 199, 32, 0.1);
-}
-
-.custom-pagination button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.table-wrapper {
-  width: 100%;
-  overflow-x: visible;
-}
-
-.prop-table {
+.adminrent-table {
   width: 100%;
   border-collapse: collapse;
-  font-family: Dosis, sans-serif;
   font-size: 16px;
-  background-color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
 }
 
-.prop-table th, .prop-table td {
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.prop-table tr:hover {
-  background-color: rgba(119, 199, 32, 0.05);
-}
-
-.prop-head th {
+.adminrent-thead {
   background-color: #77c720;
-  color: #fff;
+}
+
+.adminrent-th {
+  padding: 16px 12px;
+  text-align: left;
   font-weight: 600;
-  text-transform: capitalize;
+  color: white;
+  font-size: 16px;
+  font-family: 'Dosis', sans-serif;
+  white-space: nowrap;
 }
 
-.no-data {
-  text-align: center;
-  padding: 20px;
-  font-style: italic;
-  color: #777;
+.adminrent-tbody {
+  background-color: white;
 }
-/* ================== Responsive Styles ================== */
 
-@media (max-width: 1200px) {
-  .table-wrapper {
-    width: 100%;                  /* take full width */
-    overflow-x: auto;              /* enable horizontal scroll */
-    -webkit-overflow-scrolling: touch; /* smooth on mobile */
-    display: block;                /* keep scroll working */
+.adminrent-tr {
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.2s ease;
+}
+
+.adminrent-tr:hover {
+  background-color: #f8f9fa;
+}
+
+.adminrent-tr:last-child {
+  border-bottom: none;
+}
+
+.adminrent-td {
+  padding: 10px 12px;
+  color: #495057;
+  font-family: 'Dosis', sans-serif;
+  vertical-align: middle;
+}
+
+.adminrent-rent {
+  font-weight: 600;
+  color: #28a745;
+  font-size: 15px;
+}
+
+.adminrent-status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.adminrent-status.occupied {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.adminrent-status.vacant {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.adminrent-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.adminrent-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Dosis', sans-serif;
+}
+
+.adminrent-btn-edit {
+  background-color: #007bff;
+  color: white;
+}
+
+.adminrent-btn-edit:hover {
+  background-color: #0056b3;
+}
+
+.adminrent-btn-view {
+  background-color: #28a745;
+  color: white;
+}
+
+.adminrent-btn-view:hover {
+  background-color: #1e7e34;
+}
+
+.adminrent-btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.adminrent-btn-delete:hover {
+  background-color: #c82333;
+}
+
+@media screen and (max-width: 1024px) {
+  .adminrent-container {
+    padding: 16px;
   }
-
-  .table-wrapper table {
-    max-width: 1100px;             /* wider than small screens */
-    width: max-content;            /* prevents shrinking */
-    border-collapse: collapse;
+  
+  .adminrent-title {
+    font-size: 28px;
+  }
+  
+  .adminrent-th,
+  .adminrent-td {
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+  
+  .adminrent-btn {
+    padding: 3px 6px;
+    font-size: 9px;
   }
 }
 
-
-@media (max-width: 992px) {
-  .prop-path {
+@media screen and (max-width: 768px) {
+  .adminrent-container {
     padding: 12px;
-    text-align: center;
   }
-
-  .prop-span {
-    font-size: 18px;
+  
+  .adminrent-title {
+    font-size: 24px;
   }
-
-  .custom-pagination button {
-    padding: 6px 10px;
+  
+  .adminrent-subtitle {
     font-size: 14px;
   }
-}
-
-@media (max-width: 768px) {
-  .prop-table thead {
-    display: none; /* hide table header */
+  
+ 
+  .adminrent-table-container {
+    overflow-x: visible;
   }
-
-  .prop-table tr {
+  
+  .adminrent-table,
+  .adminrent-thead,
+  .adminrent-tbody,
+  .adminrent-th,
+  .adminrent-td,
+  .adminrent-tr {
     display: block;
-    margin-bottom: 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 10px;
   }
-
-  .prop-table td {
+  
+  .adminrent-thead {
+    display: none;
+  }
+  
+  .adminrent-tr {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 16px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .adminrent-td {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 10px;
-    border: none;
+    padding: 8px 0;
     border-bottom: 1px solid #f1f1f1;
   }
-
-  .prop-table td:last-child {
+  
+  .adminrent-td:last-child {
     border-bottom: none;
   }
-
-  .prop-table td::before {
-    content: attr(data-label);
+  
+  .adminrent-td::before {
+    content: attr(data-label) ": ";
     font-weight: 600;
-    text-transform: capitalize;
-    color: #333;
+    color: #495057;
+    flex: 0 0 40%;
+    text-align: left;
   }
-
-  .prop-table img {
-    width: 100%;
-    max-width: 120px;
-    height: auto;
-    border-radius: 6px;
+  
+  .adminrent-actions {
+    flex: 1;
+    justify-content: flex-end;
   }
-
-  .custom-pagination {
-    flex-wrap: wrap;
-    gap: 6px;
+  
+  .adminrent-btn {
+    padding: 4px 8px;
+    font-size: 11px;
   }
 }
 
-@media (max-width: 480px) {
-  .prop-span {
-    font-size: 16px;
-  }
-
-  .prop-table tr {
+@media screen and (max-width: 480px) {
+  .adminrent-container {
     padding: 8px;
   }
-
-  .prop-table td {
+  
+  .adminrent-title {
+    font-size: 20px;
+  }
+  
+  .adminrent-subtitle {
+    font-size: 12px;
+  }
+  
+  .adminrent-tr {
+    padding: 12px;
+  }
+  
+  .adminrent-td {
     flex-direction: column;
     align-items: flex-start;
-    text-align: left;
-    padding: 6px 8px;
+    gap: 4px;
   }
+  
+  .adminrent-td::before {
+    flex: none;
+    font-size: 12px;
+  }
+  
+  .adminrent-actions {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  
+  .adminrent-btn {
+    flex: 1;
+    min-width: 60px;
+  }
+} */
 
-  .prop-table td::before {
-    margin-bottom: 4px;
-    font-size: 14px;
-  }
-
-  .custom-pagination button {
-    font-size: 14px;
-    padding: 5px 8px;
-  }
+.ds_role_table thead tr th , td {
+    padding: 15px 15px;
+    text-align: center;
+}
+.ds_table_wrapper{
+  background-color: pink;
+}
+.ds_role_table thead tr th{
+    border-bottom: 0.8px solid #C6C6C64D;
 }
 
-
+@media (max-width: 1024px) {
+    .ds_table_wrapper {
+      overflow-x: auto; 
+      display: block; 
+      white-space: nowrap; 
+    }
+  
+    .ds_role_table {
+      min-width: 700px; 
+    }
+  }
+  

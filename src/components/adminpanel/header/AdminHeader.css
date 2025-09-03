@@ -58,4 +58,14 @@
   border-radius: 30%;
   object-fit: cover;
 }
+/* AdminHeader.css */
+.admin-toggle-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .admin-toggle-btn {
+    display: block;
+  }
+}
 

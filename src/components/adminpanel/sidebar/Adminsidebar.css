@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 13%;
   min-width: 13%;
+  height: calc(100vh - 72.8px);
   background-color: #ffffff;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }

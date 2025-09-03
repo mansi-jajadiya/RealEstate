@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import "./AdminHeader.css";
 
 const AdminHeader = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   return (
     <header className="admin-header-section d-flex align-items-center justify-content-between px-3 py-2 shadow-sm">
       <div className="admin-brand-container d-flex align-items-center">
@@ -29,7 +29,7 @@ const AdminHeader = () => {
 
         {/* 👇 Toggle button for mobile sidebar */}
         <button
-          className="btn btn-outline-secondary d-md-none"
+          className="btn btn-outline-secondary admin-toggle-btn ms-3"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#adminSidebarOffcanvas"
@@ -38,51 +38,54 @@ const AdminHeader = () => {
           ☰
         </button>
 
-          <div
-        className="offcanvas offcanvas-start adminhello"
-        tabIndex="-1"
-        id="adminSidebarOffcanvas"
-        aria-labelledby="adminSidebarLabel"
-      >        
-        <div className="offcanvas-header">          
-          <button
-            type="button"
-            className="btn-close text-reset"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
+        <div
+          className="offcanvas offcanvas-start adminhello"
+          tabIndex="-1"
+          id="adminSidebarOffcanvas"
+          aria-labelledby="adminSidebarLabel"
+        >
+          <div className="offcanvas-header">
+            <button
+              type="button"
+              className="btn-close text-reset"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div className="offcanvas-body p-0">
+            <nav className="admin-navigation-panel">
+              <ul className="admin-menu-list">
+                <li className="admin-menu-item">
+                  <div className="admin-menu-link">
+                    <TbLayoutDashboard size={32} className="admin-menu-icon" />
+                    <span className="admin-menu-text mt-2">Dashboard</span>
+                  </div>
+                </li>
+                <li className="admin-menu-item">
+                  <div
+                    className="admin-menu-link"
+                    onClick={() => navigate("/admin/agent")}
+                  >
+                    <FiUsers size={20} className="admin-menu-icon" />
+                    <span className="admin-menu-text mt-2">Agents</span>
+                  </div>
+                </li>
+                <li className="admin-menu-item">
+                  <div className="admin-menu-link">
+                    <FiLayers size={20} className="admin-menu-icon" />
+                    <span className="admin-menu-text mt-2">For Rent</span>
+                  </div>
+                </li>
+                <li className="admin-menu-item">
+                  <div className="admin-menu-link">
+                    <RiUserSettingsLine size={32} className="admin-menu-icon" />
+                    <span className="admin-menu-text mt-2">Users</span>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        <div className="offcanvas-body p-0">        
-    <nav className="admin-navigation-panel">      
-      <ul className="admin-menu-list">        
-        <li className="admin-menu-item">          
-          <div className="admin-menu-link">            
-            <TbLayoutDashboard size={32} className="admin-menu-icon" />
-            <span className="admin-menu-text mt-2">Dashboard</span>
-          </div>
-        </li>
-        <li className="admin-menu-item">          
-          <div className="admin-menu-link" onClick={()=>navigate("/admin/agent")}>            
-            <FiUsers size={20} className="admin-menu-icon" />
-            <span className="admin-menu-text mt-2">Agents</span>
-          </div>
-        </li>
-        <li className="admin-menu-item">          
-          <div className="admin-menu-link">            
-            <FiLayers size={20} className="admin-menu-icon" />
-            <span className="admin-menu-text mt-2">For Rent</span>
-          </div>
-        </li>
-        <li className="admin-menu-item">          
-          <div className="admin-menu-link">            
-            <RiUserSettingsLine size={32} className="admin-menu-icon" />
-            <span className="admin-menu-text mt-2">Users</span>
-          </div>
-        </li>
-      </ul>
-    </nav>
-        </div>
-      </div>
       </div>
     </header>
   );

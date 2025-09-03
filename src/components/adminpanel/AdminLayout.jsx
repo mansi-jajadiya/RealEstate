@@ -2,23 +2,18 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Adminsidebar from "./sidebar/Adminsidebar";
 import AdminHeader from "./header/AdminHeader";
+import "./AdminLayout.css";
 
 const AdminLayout = () => {
   return (
-    <div className="overflow-x-clip">
+    <div className="w-100">
       <AdminHeader />
       <div style={{ display: "flex" }}>
         <Adminsidebar />
-        <main
-          style={{
-            backgroundColor: "#f5f5f5",
-            flex: 1,
-            minHeight: "100vh",
-            padding: "20px"
-          }}
-        >
-          <Outlet />
-        </main>
+     
+         <main className="width_manage" >
+             <Outlet/>
+        </main> 
       </div>
     </div>
   );
