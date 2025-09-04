@@ -125,7 +125,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="custom-offcanvas-item nav-item">
-              <Link className="custom-offcanvas-link nav-link" to="contact">
+              <Link className="custom-offcanvas-link nav-link" to="/contact">
                 Contact
               </Link>
             </li>

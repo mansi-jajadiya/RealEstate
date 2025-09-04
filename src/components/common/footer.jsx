@@ -58,7 +58,7 @@ export default function Footer() {
                 <IoIosArrowForward /> Apartment
               </li>
               <li onClick={() => navigate("/category")}>
-                <IoIosArrowForward /> Single Family Home
+                <IoIosArrowForward /> Single  Home
               </li>
               <li onClick={() => navigate("/category")}>
                 <IoIosArrowForward /> Villa

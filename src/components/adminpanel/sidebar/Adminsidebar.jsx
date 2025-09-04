@@ -26,12 +26,12 @@ const Adminsidebar = () => {
           </div>
         </li>
         <li className="admin-menu-item">          
-          <div className="admin-menu-link">            
+          <div className="admin-menu-link" onClick={()=>navigate("/admin/adminrent")}>            
             <FiLayers size={20} className="admin-menu-icon" />
             <span className="admin-menu-text mt-2">For Rent</span>
           </div>
         </li>
-        <li className="admin-menu-item">          
+        <li className="admin-menu-item" onClick={()=>navigate("/admin/user")}>          
           <div className="admin-menu-link">            
             <RiUserSettingsLine size={32} className="admin-menu-icon" />
             <span className="admin-menu-text mt-2">Users</span>

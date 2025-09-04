@@ -66,7 +66,7 @@ const RealnestSignup = () => {
       });
 
       setTimeout(() => {
-        navigate("/contact");
+        navigate("/LoginPage");
       }, 2500);
     }
   };

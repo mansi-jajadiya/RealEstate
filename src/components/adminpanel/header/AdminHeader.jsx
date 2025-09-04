@@ -71,13 +71,13 @@ const AdminHeader = () => {
                   </div>
                 </li>
                 <li className="admin-menu-item">
-                  <div className="admin-menu-link">
+                  <div className="admin-menu-link" onClick={()=>navigate("/admin/adminrent")}>
                     <FiLayers size={20} className="admin-menu-icon" />
                     <span className="admin-menu-text mt-2">For Rent</span>
                   </div>
                 </li>
                 <li className="admin-menu-item">
-                  <div className="admin-menu-link">
+                  <div className="admin-menu-link" onClick={()=>navigate("/admin/user")}>
                     <RiUserSettingsLine size={32} className="admin-menu-icon" />
                     <span className="admin-menu-text mt-2">Users</span>
                   </div>

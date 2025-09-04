@@ -432,7 +432,7 @@ export default function Breadcrumb() {
                     <h5>{submittedComment.name}</h5>
                     <div className="comment-meta-5678">
                       <i className="bi bi-calendar3"></i>
-                      {submittedComment.date} <i class="bi bi-clock"></i>{" "}
+                      {submittedComment.date} <i className="bi bi-clock"></i>{" "}
                       {submittedComment.time}
                     </div>
                     <p className="comment-moderation-5678">

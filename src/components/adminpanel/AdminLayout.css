@@ -1,9 +1,10 @@
 .width_manage {
   width: 87%;
   margin: 0 auto;
-  height: calc(100vh - 72.8px);
-  max-height: 100%;
+  /* height: calc(100vh - 72.8px); */
+  /* max-height: 100%; */
   background-color: #f5f5f5;
+  /* height: 100%; */
 
   /* Hide scrollbar for Firefox only inside this div */
   /* scrollbar-width: none;  */
@@ -19,5 +20,7 @@
   .width_manage {
     width: 100%;
     padding: 0px 10px;
+  height: calc(100vh - 56.8px);
+
   }
 }

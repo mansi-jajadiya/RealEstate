@@ -73,7 +73,7 @@ const Wishlist = () => {
                 {wishlist.map((item) => (
                   <div
                     className="row wishlist-item align-items-center mb-3"
-                    key={item.id}
+                    key={item?.id}
                   >
                     <div className="col-md-6 col-sm-6 col-12 d-flex align-items-start">
                       <img
