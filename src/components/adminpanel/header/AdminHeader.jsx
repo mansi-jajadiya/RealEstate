@@ -26,8 +26,6 @@ const AdminHeader = () => {
           </div>
           <img src="/images/admin.jpg" alt="profile" className="profile-img" />
         </div>
-
-        {/* 👇 Toggle button for mobile sidebar */}
         <button
           className="btn btn-outline-secondary admin-toggle-btn ms-3"
           type="button"
@@ -37,7 +35,6 @@ const AdminHeader = () => {
         >
           ☰
         </button>
-
         <div
           className="offcanvas offcanvas-start adminhello"
           tabIndex="-1"
@@ -56,7 +53,10 @@ const AdminHeader = () => {
             <nav className="admin-navigation-panel">
               <ul className="admin-menu-list">
                 <li className="admin-menu-item">
-                  <div className="admin-menu-link">
+                  <div
+                    className="admin-menu-link"
+                    onClick={() => navigate("/admin/dashboard")}
+                  >
                     <TbLayoutDashboard size={32} className="admin-menu-icon" />
                     <span className="admin-menu-text mt-2">Dashboard</span>
                   </div>
@@ -71,13 +71,19 @@ const AdminHeader = () => {
                   </div>
                 </li>
                 <li className="admin-menu-item">
-                  <div className="admin-menu-link" onClick={()=>navigate("/admin/adminrent")}>
+                  <div
+                    className="admin-menu-link"
+                    onClick={() => navigate("/admin/adminrent")}
+                  >
                     <FiLayers size={20} className="admin-menu-icon" />
                     <span className="admin-menu-text mt-2">For Rent</span>
                   </div>
                 </li>
                 <li className="admin-menu-item">
-                  <div className="admin-menu-link" onClick={()=>navigate("/admin/user")}>
+                  <div
+                    className="admin-menu-link"
+                    onClick={() => navigate("/admin/user")}
+                  >
                     <RiUserSettingsLine size={32} className="admin-menu-icon" />
                     <span className="admin-menu-text mt-2">Users</span>
                   </div>

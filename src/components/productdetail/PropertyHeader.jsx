@@ -2,9 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { RiHomeLine } from "react-icons/ri";
 import { CiLocationOn } from "react-icons/ci";
-import { CiHeart } from "react-icons/ci";
-import { BsShare } from "react-icons/bs";
-import { BsPrinter } from "react-icons/bs";
 import "./PropertyHeader.css";
 
 export default function PropertyHeader() {
@@ -40,17 +37,7 @@ export default function PropertyHeader() {
         </div>
 
         <div className="text-end">
-          <div className="d-flex justify-content-end gap-2 mb-2">
-            <button className="btn icon-btn btn-outline-light border">
-              <CiHeart className="text-danger" size={20} />
-            </button>
-            <button className="btn icon-btn btn-outline-light border">
-              <BsShare className="text-dark" />
-            </button>
-            <button className="btn icon-btn btn-outline-light border">
-              <BsPrinter className="text-dark" />
-            </button>
-          </div>
+         
           <h3 className="fw-bold price-main">
             $4,500<span className=" price-main-1 fw-normal">/mo</span>
           </h3>

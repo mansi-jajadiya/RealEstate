@@ -6,7 +6,8 @@ const Userinfo = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/users")
+    axios
+      .get("http://localhost:3001/users")
       .then((response) => setUsers(response.data))
       .catch((error) => console.error(error));
   }, []);

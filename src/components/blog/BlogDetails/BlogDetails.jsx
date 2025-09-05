@@ -282,7 +282,7 @@ export default function Breadcrumb() {
                     Mollis Odio Posuere Nec.
                   </h4>
 
-                  <img src="chicago.jpg" alt="chicago" />
+                 
                   <p>
                     Vivamus varius vitae dolor ac hendrerit. Vestibulum nec
                     dolor ac nunc blandit aliquam. Nam at metus non ligula

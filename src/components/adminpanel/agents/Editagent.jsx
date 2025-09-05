@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { VscError } from "react-icons/vsc";
+import { FaRegCheckCircle } from "react-icons/fa";
 import "./Addagent.css";
 
 const Editagent = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     agentname: "",
     cname: "",
@@ -17,6 +20,9 @@ const Editagent = () => {
     description: "",
     image: "",
   });
+
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   useEffect(() => {
     axios
@@ -35,11 +41,56 @@ const Editagent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    setSuccess("");
+
+    if (
+      !formData.agentname ||
+      !formData.cname ||
+      !formData.office ||
+      !formData.mobile ||
+      !formData.fax ||
+      !formData.email ||
+      !formData.location ||
+      !formData.description
+    ) {
+      setError("All fields are required");
+      return;
+    }
+
+    if (!/^[A-Za-z\s]+$/.test(formData.agentname)) {
+      setError("Agent name can only contain letters and spaces");
+      return;
+    }
+
+    if (!/^\d{10}$/.test(formData.office)) {
+      setError("Office must be a 10-digit number");
+      return;
+    }
+
+    if (!/^\d{10}$/.test(formData.mobile)) {
+      setError("Mobile must be a 10-digit number");
+      return;
+    }
+
+    if (!/^\d{10}$/.test(formData.fax)) {
+      setError("Fax must be a 10-digit number");
+      return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      setError("Invalid email format");
+      return;
+    }
+
     try {
       await axios.put(`http://localhost:3001/ouragent/${id}`, formData);
-      navigate("/admin/agent"); 
+      setSuccess("Agent updated successfully!");
+
+      setTimeout(() => navigate("/admin/agent"), 1200);
     } catch (err) {
       console.error("Error updating agent:", err);
+      setError("Failed to update agent. Try again.");
     }
   };
 
@@ -54,6 +105,35 @@ const Editagent = () => {
             <span className="add-span">/Edit Agent</span>
           </div>
           <div className="add-age-card shadow-sm p-4 rounded-3">
+            {error && (
+              <div className="alert alert-danger d-flex justify-content-between align-items-center">
+                <div className="d-flex align-items-center">
+                  <VscError />
+                  <div className="ms-3">{error}</div>
+                </div>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={() => setError("")}
+                  aria-label="Close"
+                ></button>
+              </div>
+            )}
+            {success && (
+              <div className="alert alert-success d-flex justify-content-between align-items-center">
+                <div className="d-flex align-items-center">
+                  <FaRegCheckCircle />
+                  <div className="ms-3">{success}</div>
+                </div>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={() => setSuccess("")}
+                  aria-label="Close"
+                ></button>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit}>
               <div className="row g-3">
                 <div className="col-md-6">
@@ -67,7 +147,9 @@ const Editagent = () => {
                   />
                 </div>
                 <div className="col-md-6">
-                  <label className="form-label add-age-name">Company Name</label>
+                  <label className="form-label add-age-name">
+                    Company Name
+                  </label>
                   <input
                     type="text"
                     name="cname"

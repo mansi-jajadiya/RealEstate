@@ -9,6 +9,7 @@ const RealnestLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [role, setRole] = useState(""); // ✅ new state for role
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
@@ -29,15 +30,19 @@ const RealnestLogin = () => {
       formErrors.password = "Password must be at least 6 characters";
     }
 
+    if (!role) {
+      formErrors.role = "Please select a role"; // ✅ validate role
+    }
+
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
   };
 
   const handleSubmit = () => {
     if (validateForm()) {
-      console.log("Login successful:", { email, password, rememberMe });
+      console.log("Login successful:", { email, password, role, rememberMe });
 
-      toast.success("Login Successful! Redirecting...", {
+      toast.success(`Login Successful as ${role}! Redirecting...`, {
         position: "top-right",
         autoClose: 2500,
         hideProgressBar: false,
@@ -48,10 +53,16 @@ const RealnestLogin = () => {
       });
 
       setTimeout(() => {
-        navigate("/");
+        // ✅ redirect based on role
+        if (role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
       }, 2500);
     }
   };
+
   const handleGoogleLogin = () => {
     window.location.href =
       "https://accounts.google.com/o/oauth2/v2/auth?" +
@@ -74,6 +85,7 @@ const RealnestLogin = () => {
     <div className="login-page-6789">
       <div className="login-container-6789">
         <div className="main-card-6789">
+          {/* LEFT SIDE */}
           <div className="left-column-6789">
             <div className="left-sections-6789">
               <div className="left-content-6789">
@@ -86,6 +98,7 @@ const RealnestLogin = () => {
             </div>
           </div>
 
+          {/* RIGHT SIDE */}
           <div className="right-column-6789">
             <div className="right-section-6789">
               <div>
@@ -99,18 +112,16 @@ const RealnestLogin = () => {
                   Welcome Back to Realnest!
                 </h2>
                 <p className="welcome-subtitle-6789">Sign into account</p>
-                <br></br>
+                <br />
 
                 <div>
+                  {/* EMAIL */}
                   <div
                     className={`form-group formgroup-5678 ${
                       errors.email ? "has-error haserror5678" : ""
                     }`}
                   >
-                    <label
-                      className="form-label-6789"
-                      style={{ fontSize: "15px" }}
-                    >
+                    <label className="form-label-6789" style={{ fontSize: "15px" }}>
                       Your Email
                     </label>
                     <input
@@ -122,21 +133,18 @@ const RealnestLogin = () => {
                     />
                     {errors.email && (
                       <div className="error-message-6789">
-                        <FaExclamationCircle className="error-icon-6789" />{" "}
-                        {errors.email}
+                        <FaExclamationCircle className="error-icon-6789" /> {errors.email}
                       </div>
                     )}
                   </div>
 
+                  {/* PASSWORD */}
                   <div
                     className={`form-group form-group5678 ${
                       errors.password ? "has-error haserror-5678" : ""
                     }`}
                   >
-                    <label
-                      className="form-label-6789"
-                      style={{ fontSize: "15px" }}
-                    >
+                    <label className="form-label-6789" style={{ fontSize: "15px" }}>
                       Password
                     </label>
                     <input
@@ -148,17 +156,52 @@ const RealnestLogin = () => {
                     />
                     {errors.password && (
                       <div className="error-message-6789">
-                        <FaExclamationCircle className="error-icon" />{" "}
-                        {errors.password}
+                        <FaExclamationCircle className="error-icon" /> {errors.password}
                       </div>
                     )}
                   </div>
 
+                  
+                  <div
+                    className={`form-group form-group5678 ${
+                      errors.role ? "has-error haserror-5678" : ""
+                    }`}
+                  >
+                    <label className="form-label-6789" style={{ fontSize: "15px" }}>
+                      Select Role
+                    </label>
+                    <div style={{ display: "flex", gap: "15px", marginTop: "5px" }}>
+                      <label style={{ fontSize: "14px" }}>
+                        <input
+                          type="radio"
+                          name="role"
+                          value="user"
+                          checked={role === "user"}
+                          onChange={(e) => setRole(e.target.value)}
+                        />{" "}
+                        User
+                      </label>
+                      <label style={{ fontSize: "14px" }}>
+                        <input
+                          type="radio"
+                          name="role"
+                          value="admin"
+                          checked={role === "admin"}
+                          onChange={(e) => setRole(e.target.value)}
+                        />{" "}
+                        Admin
+                      </label>
+                    </div>
+                    {errors.role && (
+                      <div className="error-message-6789">
+                        <FaExclamationCircle className="error-icon-6789" /> {errors.role}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* REMEMBER ME */}
                   <div className="remember-forgot-6789">
-                    <label
-                      className="remember-me-6789"
-                      style={{ fontSize: "13px" }}
-                    >
+                    <label className="remember-me-6789" style={{ fontSize: "13px" }}>
                       <input
                         type="checkbox"
                         checked={rememberMe}
@@ -168,6 +211,7 @@ const RealnestLogin = () => {
                     </label>
                   </div>
 
+                  {/* LOGIN BTN */}
                   <button
                     type="button"
                     className="login-btn-6789"
@@ -177,10 +221,12 @@ const RealnestLogin = () => {
                   </button>
                 </div>
 
+                {/* DIVIDER */}
                 <div className="divider-6789">
                   <span style={{ fontSize: "10px" }}>Or continue with</span>
                 </div>
 
+                {/* SOCIAL LOGIN */}
                 <div className="social-buttons-6789">
                   <button
                     className="social-btn-6789"
@@ -198,10 +244,8 @@ const RealnestLogin = () => {
                   </button>
                 </div>
 
-                <div
-                  className="register-link-6789"
-                  style={{ fontSize: "13px" }}
-                >
+                {/* REGISTER LINK */}
+                <div className="register-link-6789" style={{ fontSize: "13px" }}>
                   Don't have any account?{" "}
                   <span
                     style={{
@@ -211,7 +255,6 @@ const RealnestLogin = () => {
                     }}
                     onClick={() => navigate("/signupPage")}
                   >
-                    {" "}
                     Register
                   </span>
                 </div>

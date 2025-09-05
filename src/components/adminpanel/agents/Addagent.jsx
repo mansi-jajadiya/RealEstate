@@ -75,33 +75,34 @@ const Addagent = () => {
       return;
     }
 
-  try {
-    const res = await axios.get("http://localhost:3001/ouragent");
-    const agents = res.data;
-    const maxId = agents.length > 0 ? Math.max(...agents.map(a => Number(a.id))) : 0;
-    const newAgent = {
-     id: String(maxId + 1), 
-    ...formData,
-    };
-    await axios.post("http://localhost:3001/ouragent", newAgent);
-    setSuccess("Agent added successfully!");
-    setFormData({
-      image: "",
-      agentname: "",
-      cname: "",
-      office: "",
-      mobile: "",
-      fax: "",
-      email: "",
-      location: "",
-      description: "",
-    });
+    try {
+      const res = await axios.get("http://localhost:3001/ouragent");
+      const agents = res.data;
+      const maxId =
+        agents.length > 0 ? Math.max(...agents.map((a) => Number(a.id))) : 0;
+      const newAgent = {
+        id: String(maxId + 1),
+        ...formData,
+      };
+      await axios.post("http://localhost:3001/ouragent", newAgent);
+      setSuccess("Agent added successfully!");
+      setFormData({
+        image: "",
+        agentname: "",
+        cname: "",
+        office: "",
+        mobile: "",
+        fax: "",
+        email: "",
+        location: "",
+        description: "",
+      });
 
-    setTimeout(() => navigate("/admin/agent"), 1200);
-  } catch (err) {
-  console.error("Error adding agent:", err);
-  setError("Failed to add agent. Try again.");
-}
+      setTimeout(() => navigate("/admin/agent"), 1200);
+    } catch (err) {
+      console.error("Error adding agent:", err);
+      setError("Failed to add agent. Try again.");
+    }
   };
 
   return (
@@ -163,7 +164,9 @@ const Addagent = () => {
                   />
                 </div>
                 <div className="col-md-6">
-                  <label className="form-label add-age-name">Company Name</label>
+                  <label className="form-label add-age-name">
+                    Company Name
+                  </label>
                   <input
                     type="text"
                     className="form-control add-age-input"
@@ -179,7 +182,7 @@ const Addagent = () => {
                     type="text"
                     className="form-control add-age-input"
                     name="office"
-                    placeholder="789 456 3210"
+                    placeholder="7894563210"
                     value={formData.office}
                     onChange={handleChange}
                   />
@@ -190,7 +193,7 @@ const Addagent = () => {
                     type="text"
                     className="form-control add-age-input"
                     name="mobile"
-                    placeholder="321 456 9874"
+                    placeholder="3214569874"
                     value={formData.mobile}
                     onChange={handleChange}
                   />
@@ -201,7 +204,7 @@ const Addagent = () => {
                     type="text"
                     className="form-control add-age-input"
                     name="fax"
-                    placeholder="897 654 1258"
+                    placeholder="8976541258"
                     value={formData.fax}
                     onChange={handleChange}
                   />

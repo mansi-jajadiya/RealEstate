@@ -5,29 +5,28 @@ import "./Adminrent.css";
 const Adminrent = () => {
   const [rentData, setRentData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-
   const recordsPerPage = currentPage === 1 ? 10 : 12;
 
   useEffect(() => {
     axios
       .get("http://localhost:3001/cards")
       .then((response) => {
-        setRentData(response.data.slice(0, 22));
+        setRentData(response.data.slice(0,22));
       })
       .catch((error) => {
         console.error("Error fetching rental data:", error);
       });
   }, []);
-
   const indexOfLastRecord =
-    currentPage === 1 ? recordsPerPage : 10 + recordsPerPage;
+  currentPage === 1 ? recordsPerPage : 10 + recordsPerPage;
   const indexOfFirstRecord = currentPage === 1 ? 0 : 10;
   const currentRecords = rentData.slice(indexOfFirstRecord, indexOfLastRecord);
 
   return (
     <div className="adminrent-container container py-sm-4 px-sm-4 py-4 px-0">
-      <p className="adminrent-heading mb-4 p-4 rounded-3">For Rent Properties</p>
-
+      <p className="adminrent-heading mb-4 p-4 rounded-3">
+        For Rent Properties
+      </p>
       <div className="ds_table_wrapper overflow-auto">
         <table className="w-100 text-dark ds_role_table">
           <thead>
@@ -71,7 +70,6 @@ const Adminrent = () => {
           </tbody>
         </table>
       </div>
-
       <div className="pagination-container123 mt-3 d-flex justify-content-center">
         <button
           className="pagination-btn123"
@@ -80,7 +78,6 @@ const Adminrent = () => {
         >
           Previous
         </button>
-
         <button
           className={`pagination-btn123 ${currentPage === 1 ? "active" : ""}`}
           onClick={() => setCurrentPage(1)}
@@ -93,7 +90,6 @@ const Adminrent = () => {
         >
           2
         </button>
-
         <button
           className="pagination-btn123"
           onClick={() => setCurrentPage(currentPage + 1)}

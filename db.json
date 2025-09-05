@@ -678,9 +678,9 @@
       "image": "/images/agent-1.jpg",
       "agentname": "Michelle Ramirez",
       "cname": "Company Agent at Realtory Inc.",
-      "office": "789 456 3210",
-      "mobile": "321 456 9874",
-      "fax": "897 654 1258",
+      "office": "7894563210",
+      "mobile": "3214569874",
+      "fax": "8976541258",
       "email": "michelle@houzez.com",
       "description": "Answering guest inquiries, directing phone calls, coordinating travel plans, and more.",
       "location": "New York, USA"
@@ -690,9 +690,9 @@
       "image": "/images/agent-2.jpg",
       "agentname": "Brittany Watkins",
       "cname": "Company Agent at Smart Houses Inc.",
-      "office": "789 456 3210",
-      "mobile": "321 456 9874",
-      "fax": "897 654 1258",
+      "office": "7894563210",
+      "mobile": "3214569874",
+      "fax": "8976541258",
       "email": "brittany@houzez.com",
       "description": "Maintain inventory of supplies and order new stock as needed Maintain inventory stock",
       "location": "Los Angeles, USA"
@@ -702,9 +702,9 @@
       "image": "/images/agent-4.jpg",
       "agentname": "Vincent Fuller",
       "cname": "Company Agent at Cool Houses Inc.",
-      "office": "789 456 3210",
-      "mobile": "321 456 9874",
-      "fax": "897 654 1258",
+      "office": "7894563210",
+      "mobile": "3214569874",
+      "fax": "8976541258",
       "email": "vincent@houzez.com",
       "description": "Assist clients with inquiries and provide accurate information Assist clients professionally",
       "location": "Chicago, USA"
@@ -714,9 +714,9 @@
       "image": "/images/agent-3 (1).jpg",
       "agentname": "Samuel Palmer",
       "cname": "Founder & CEO at Realty Properties Inc.",
-      "office": "789 456 3210",
-      "mobile": "321 456 9874",
-      "fax": "897 654 1258",
+      "office": "7894563210",
+      "mobile": "3214569874",
+      "fax": "8976541258",
       "email": "samuel@houzez.com",
       "description": "Provide excellent customer service and respond promptly Provide service efficiently",
       "location": "Houston, USA"
@@ -726,21 +726,20 @@
       "image": "/images/agent-5.jpg",
       "agentname": "Emma Johnson",
       "cname": "Senior Agent at Dream Homes Realty",
-      "office": "456 123 7890",
-      "mobile": "987 654 3210",
-      "fax": "654 321 9870",
+      "office": "4561237890",
+      "mobile": "9876543210",
+      "fax": "6543219870",
       "email": "emma@houzez.com",
       "description": "Guide clients through buying and selling process Guide clients carefully",
-      "location": "San Francisco, USA"
-    },
+      "location": "San Francisco, USA"    },
     {
       "id": "6",
       "image": "/images/agent-6.jpg",
       "agentname": "Olivia Parker",
       "cname": "Top Property Advisor at Skyline Realty",
-      "office": "321 987 6540",
-      "mobile": "654 789 1230",
-      "fax": "123 456 7890",
+      "office": "3219876540",
+      "mobile": "6547891230",
+      "fax": "1234567890",
       "email": "olivia@skyline.com",
       "description": "Dedicated to helping clients buy and sell properties smoothly with expert advice and personalized support.",
       "location": "Los Angeles, USA"
@@ -886,7 +885,8 @@
       "image": "/images/thirdcard.jpg",
       "author": "Martin Moore"
     }
-  ],"users": [
+  ],
+  "users": [
     {
       "id": "1",
       "fullname": "John Doe",
