@@ -30,7 +30,14 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={ <EnhancedErrorBoundary name="Home Page"> <Home /> </EnhancedErrorBoundary>}/>
+        <Route 
+           path="/" 
+           element={ 
+             <EnhancedErrorBoundary name="Home Page"> 
+                  <Home /> 
+             </EnhancedErrorBoundary>
+            }
+            />
         <Route
           path="/product"
           element={

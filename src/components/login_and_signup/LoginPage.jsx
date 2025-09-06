@@ -55,7 +55,7 @@ const RealnestLogin = () => {
       setTimeout(() => {
         // ✅ redirect based on role
         if (role === "admin") {
-          navigate("/admin");
+          navigate("/admin/dashboard");
         } else {
           navigate("/");
         }
